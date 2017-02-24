@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TraningProgress
+public class TranningProgress
 {
     public int Week;
     public int Day;

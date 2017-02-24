@@ -5,7 +5,7 @@ using UnityEngine;
 public class WebController : MonoBehaviour
 {
     public enum Mode { Upload, Download };
-
+    
     [Header("Konfiguracja")]
     public Mode mode = Mode.Download;
     public string url = "http://n1troo.usermd.net/ES2.php";
@@ -18,7 +18,10 @@ public class WebController : MonoBehaviour
     public string webPassword = "tset321";
 
 
-    public IEnumerator UploadTranning(TraningProgress traning, string tag)
+   
+
+
+    private IEnumerator UploadTranning(TranningProgress traning, string tag)
     {
         string myURL = url + "?webfilename=myFile.txt";
         ES2Web web = new ES2Web(myURL + "&tag=" + tag);
@@ -50,11 +53,9 @@ public class WebController : MonoBehaviour
         {
             // Enter your own code to handle errors here.
             Debug.LogError(web.errorCode + ":" + web.error);
+            yield break;
         }
         // web.SaveToFile("myFile.txt");
-
-        TraningProgress data = web.Load<TraningProgress>(tag);
-        // Now save our data to file so we can use ES2.Load to load it.
-        Debug.Log("DATA " + data.Day);
+       // MenuManager.Tranningdata = web.Load<TranningProgress>(tag);
     }
 }

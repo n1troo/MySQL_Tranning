@@ -7,7 +7,7 @@ public class ES2UserType_TraningProgress : ES2Type
 {
 	public override void Write(object obj, ES2Writer writer)
 	{
-		TraningProgress data = (TraningProgress)obj;
+		TranningProgress data = (TranningProgress)obj;
 		// Add your writer.Write calls here.
 		writer.Write(data.Week);
 		writer.Write(data.Day);
@@ -18,14 +18,14 @@ public class ES2UserType_TraningProgress : ES2Type
 	
 	public override object Read(ES2Reader reader)
 	{
-		TraningProgress data = new TraningProgress();
+		TranningProgress data = new TranningProgress();
 		Read(reader, data);
 		return data;
 	}
 
 	public override void Read(ES2Reader reader, object c)
 	{
-		TraningProgress data = (TraningProgress)c;
+		TranningProgress data = (TranningProgress)c;
 		// Add your reader.Read calls here to read the data into the object.
 		data.Week = reader.Read<System.Int32>();
 		data.Day = reader.Read<System.Int32>();
@@ -35,5 +35,5 @@ public class ES2UserType_TraningProgress : ES2Type
 	}
 	
 	/* ! Don't modify anything below this line ! */
-	public ES2UserType_TraningProgress():base(typeof(TraningProgress)){}
+	public ES2UserType_TraningProgress():base(typeof(TranningProgress)){}
 }
